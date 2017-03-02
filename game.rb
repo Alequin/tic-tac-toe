@@ -11,9 +11,9 @@ class Game
 
   def run_game_loop
 
-    print_divider
+    Game.print_divider
     puts "Lets Play Noughts and Crosses!"
-    print_divider
+    Game.print_divider
 
     round = 1
     new_round = false
@@ -21,7 +21,7 @@ class Game
     current_symbol = Board.X_SYMBOL
 
     loop {
-      print_divider
+      Game.print_divider
       puts "Round #{round}: Your turn #{current_player.name} (#{current_symbol})"
       @Game_Board.print_board
       loop{
@@ -37,9 +37,11 @@ class Game
 
       if(@Game_Board.win?)
         print_game_won_message(current_player.name)
+        @Game_Board.print_board
         break;
       elsif(!@Game_Board.free_space_on_board?)
         print_full_board_message
+        @Game_Board.print_board
         break;
       end
 
@@ -53,11 +55,11 @@ class Game
 
   end
 
-  private
-
-  def print_divider
+  def Game.print_divider
     puts "-----------------------------------------------------------------"
   end
+
+  private
 
   def get_player_position_selection
 
@@ -84,8 +86,3 @@ class Game
   end
 
 end
-
-one = Player.new("player 1", :HUMAN)
-two = Player.new("player 2", :HUMAN)
-
-Game.new(one, two).run_game_loop
