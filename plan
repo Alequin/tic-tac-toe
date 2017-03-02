@@ -1,0 +1,13 @@
+objects:
+	game 
+		accepts player and board objects
+		facilitates player and board interaction
+		runs game loop
+		checks win conditions
+	player 
+		track player names
+		track which play is which symbol
+	board 
+		track player moves
+		print out current board
+		accept player moves and change board accordinly
