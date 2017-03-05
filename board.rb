@@ -58,6 +58,10 @@ class Board
     return result
   end
 
+  def clone_board_array
+    return @board.map
+  end
+
   private
 
   def make_board
